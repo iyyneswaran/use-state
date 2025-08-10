@@ -2,11 +2,19 @@ import { useEffect, useState } from "react";
 
 function Timer() {
 
-    const [count, setCount] = useState(1);
+    // const [count, setCount] = useState(1);
+    const [count, setCount] = useState(0);
+
+    // useEffect(() => {
+    //     checkCount();
+    // }, [count]);
 
     useEffect(() => {
-        checkCount();
-    }, [count]);
+        console.log("Screen Rendered");
+        setTimeout(() => {
+            setCount((previousState) => { return previousState + 1 });
+        }, 2000);
+    });
 
     function checkCount() {
         if(count > 10){
